@@ -1,0 +1,202 @@
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2a2a44);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    background: #2c2c3d;
+    padding: 20px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 28px;
+    color: #e0aaff;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: #d1d1e9;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    background: #e0aaff;
+    color: #2a2a44;
+    transform: scale(1.1);
+    font-weight: 600;
+}
+
+/* Center Container */
+.container {
+    background: #28283e;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    max-width: 400px; /* Smaller width */
+    width: 120%;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    margin: 60px 0; /* Adds spacing when scrolling */
+}
+
+.container h2 {
+    font-size: 28px;
+    color: #e0aaff;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    
+}
+/* Side Designs */
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(80px);
+    animation: float 8s infinite ease-in-out;
+}
+
+body::before {
+    top: 10%;
+    left: 5%;
+    background: linear-gradient(135deg, #e6397f, transparent);
+}
+
+body::after {
+    bottom: 10%;
+    right: 5%;
+    background: linear-gradient(135deg, #6397e6, transparent);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(30px);
+    }
+}
+
+/* Input and Select Styles */
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #f5e3f0;
+    text-align: left;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    background: #f5f6fa;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2), inset -2px -2px 4px rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border: 2px solid #e0aaff;
+    background-color: #ffffff;
+    color: #1e1e2f;
+}
+
+input[readonly] {
+    background: #e0e0f5;
+    color: #555;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Footer */
+footer {
+    background: #2c2c3d;
+    color: #9a9ab3;
+    text-align: center;
+    padding: 20px 10%;
+    font-size: 14px;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #e0aaff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Add Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    body::before, body::after {
+        width: 150px;
+        height: 150px;
+    }
+}

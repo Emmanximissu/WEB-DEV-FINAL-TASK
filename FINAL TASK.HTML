@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Mainpagestyle.css">
+    <title>Number System Converter</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Number System Converter</h1>
+        <nav>
+            <a href="FINAL TASK.HTML">Home Page</a>
+            <a href="Introduction.html">Introduction to Number System</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Number System Converter</h2><br>
+
+        <!-- Input Section -->
+        <label for="inputNumber">Enter a Number:</label>
+        <input type="text" id="inputNumber" placeholder="Enter the number to convert" oninput="convertNumber()">
+
+        <label for="inputBase">Select Input Base:</label>
+        <select id="inputBase" onchange="convertNumber()">
+            <option value="10">Decimal</option>
+            <option value="2">Binary</option>
+            <option value="8">Octal</option>
+            <option value="16">Hexadecimal</option>
+        </select>
+
+        <!-- Output Section -->
+        <label for="decimal">Decimal:</label>
+        <input type="text" id="decimal" readonly>
+
+        <label for="binary">Binary:</label>
+        <input type="text" id="binary" readonly>
+
+        <label for="octal">Octal:</label>
+        <input type="text" id="octal" readonly>
+
+        <label for="hexadecimal">Hexadecimal:</label>
+        <input type="text" id="hexadecimal" readonly>
+    </div>
+
+    <footer>
+        Jamison 2024
+    </footer>
+
+    <script>
+        function convertNumber() {
+            const inputNumber = document.getElementById("inputNumber").value;
+            const inputBase = parseInt(document.getElementById("inputBase").value, 10);
+            let decimalValue;
+
+            try {
+                // Convert the input to decimal based on the selected base
+                decimalValue = parseInt(inputNumber, inputBase);
+
+                if (isNaN(decimalValue)) throw "Invalid Input";
+
+                // Update all output fields based on the decimal value
+                document.getElementById("decimal").value = decimalValue;
+                document.getElementById("binary").value = decimalValue.toString(2);
+                document.getElementById("octal").value = decimalValue.toString(8);
+                document.getElementById("hexadecimal").value = decimalValue.toString(16).toUpperCase();
+            } catch (error) {
+                // Clear all fields if input is invalid
+                document.getElementById("decimal").value = "";
+                document.getElementById("binary").value = "";
+                document.getElementById("octal").value = "";
+                document.getElementById("hexadecimal").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
